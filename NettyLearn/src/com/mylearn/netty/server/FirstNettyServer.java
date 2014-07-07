@@ -1,5 +1,7 @@
 package com.mylearn.netty.server;
 
+import java.util.Calendar;
+
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -67,6 +69,7 @@ public class FirstNettyServer {
 			port = 8080;
 		}
 
-		new FirstNettyServer(port).run();
+		//new FirstNettyServer(port).run();
+		System.out.println(Calendar.getInstance().get(Calendar.WEEK_OF_YEAR));
 	}
 }
