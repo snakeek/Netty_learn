@@ -1,4 +1,4 @@
-package com.mylearn.netty.guide.chapter4;
+package com.mylearn.netty.guide.chapter4.first;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
