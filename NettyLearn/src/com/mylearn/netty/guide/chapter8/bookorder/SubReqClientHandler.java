@@ -1,5 +1,7 @@
 package com.mylearn.netty.guide.chapter8.bookorder;
 
+import com.mylearn.netty.guide.chapter8.protobuf.SubscribeRegProto;
+
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
 
@@ -23,8 +25,8 @@ public class SubReqClientHandler extends ChannelHandlerAdapter {
 	@Override
 	public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
 		ctx.flush();
-		for (int i = 0; i < 10; i++)
-			ctx.writeAndFlush(subReq(i));
+//		for (int i = 0; i < 10; i++)
+//			ctx.writeAndFlush(subReq(i));
 	}
 
 	@Override
@@ -34,14 +36,13 @@ public class SubReqClientHandler extends ChannelHandlerAdapter {
 		ctx.close();
 	}
 
-	private SubscribeReq subReq(int i) {
+	private SubscribeRegProto.SubscribeReq subReq(int i) {
 
-		SubscribeReq req = new SubscribeReq();
-		req.setAddress("北京市海淀区健翔大厦2-4-13");
-		req.setPhoneNumber("12345678901");
-		req.setProductName("Netty 指南");
-		req.setSubReqID(i);
-		req.setUserName("snakeek");
-		return req;
+		SubscribeRegProto.SubscribeReq.Builder builder = SubscribeRegProto.SubscribeReq.newBuilder();
+		builder.setAddress("北京市海淀区健翔大厦2-4-13");
+		builder.setProduceName("12345678901");
+		builder.setSubReqID(i);
+		builder.setUserName("snakeek");
+		return builder.build();
 	}
 }
