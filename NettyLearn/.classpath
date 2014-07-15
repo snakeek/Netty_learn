@@ -2,7 +2,8 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-	<classpathentry kind="lib" path="F:/NettyAction/jar/netty-5.0.0.Alpha1/jar/all-in-one/netty-all-5.0.0.Alpha1.jar" sourcepath="F:/NettyAction/jar/netty-5.0.0.Alpha1/jar/all-in-one/netty-all-5.0.0.Alpha1-sources.jar"/>
-	<classpathentry kind="lib" path="F:/NettyAction/jar/netty-5.0.0.Alpha1/jar/netty-example-5.0.0.Alpha1.jar" sourcepath="F:/NettyAction/jar/netty-5.0.0.Alpha1/jar/netty-example-5.0.0.Alpha1-sources.jar"/>
+	<classpathentry kind="lib" path="K:/Netty/netty-5.0.0.Alpha1/jar/all-in-one/netty-all-5.0.0.Alpha1.jar" sourcepath="F:/NettyAction/jar/netty-5.0.0.Alpha1/jar/all-in-one/netty-all-5.0.0.Alpha1-sources.jar"/>
+	<classpathentry kind="lib" path="K:/Netty/netty-5.0.0.Alpha1/jar/netty-example-5.0.0.Alpha1.jar" sourcepath="F:/NettyAction/jar/netty-5.0.0.Alpha1/jar/netty-example-5.0.0.Alpha1-sources.jar"/>
+	<classpathentry kind="lib" path="K:/Netty/jar/protobuf-java-2.5.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
