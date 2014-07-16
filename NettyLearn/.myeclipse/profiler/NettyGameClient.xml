@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="app_preset_prof_preset_name">NettyGameClient Launch Configuration</entry>
+<entry key="app_preset_prof_preset_filter_s"/>
+<entry key="app_preset_prof_preset_filter_p">com.mylearn.netty.chapter4.*,
+com.mylearn.netty.client.*,
+com.mylearn.netty.guide.chapter10.websocket.*,
+com.mylearn.netty.guide.chapter3.*,
+com.mylearn.netty.guide.chapter4.first.*,
+com.mylearn.netty.guide.chapter4.second.*,
+com.mylearn.netty.guide.chapter5.first.*,
+com.mylearn.netty.guide.chapter5.second.*,
+com.mylearn.netty.guide.chapter7.*,
+com.mylearn.netty.guide.chapter8.bookorder.*,
+com.mylearn.netty.guide.chapter8.protobuf.*,
+com.mylearn.netty.mygame.*,
+com.mylearn.netty.object.*,
+com.mylearn.netty.sample.websocket.client.*,
+com.mylearn.netty.sample.websocket.server.*,
+com.mylearn.netty.sample.worldclock.*,
+com.mylearn.netty.server.*</entry>
+<entry key="app_preset_prof_preset_alloc_p">10</entry>
+<entry key="app_preset_"/>
+<entry key="app_preset_prof_preset_samplingRefreshRate_s">1000</entry>
+<entry key="app_preset_prof_preset_stacks_p">false</entry>
+<entry key="app_preset_prof_preset_roots_p">com.mylearn.netty.chapter4.**
+com.mylearn.netty.client.**
+com.mylearn.netty.guide.chapter10.websocket.**
+com.mylearn.netty.guide.chapter3.**
+com.mylearn.netty.guide.chapter4.first.**
+com.mylearn.netty.guide.chapter4.second.**
+com.mylearn.netty.guide.chapter5.first.**
+com.mylearn.netty.guide.chapter5.second.**
+com.mylearn.netty.guide.chapter7.**
+com.mylearn.netty.guide.chapter8.bookorder.**
+com.mylearn.netty.guide.chapter8.protobuf.**
+com.mylearn.netty.mygame.**
+com.mylearn.netty.object.**
+com.mylearn.netty.sample.websocket.client.**
+com.mylearn.netty.sample.websocket.server.**
+com.mylearn.netty.sample.worldclock.**
+com.mylearn.netty.server.**
+</entry>
+<entry key="profiler.settings.instrument.empty.methods">false</entry>
+<entry key="myeclipse.profiling.mode">0</entry>
+<entry key="profiler.settings.istrument.getter.setter.methods">false</entry>
+<entry key="app_preset_prof_preset_samplingRate_s">100</entry>
+<entry key="app_preset_prof_preset_filterMode_s">true</entry>
+<entry key="app_preset_prof_preset_selector"/>
+<entry key="app_preset_prof_preset_refreshRate_s">1000</entry>
+<entry key="app_preset_prof_preset_runnables_p">true</entry>
+<entry key="app_preset_prof_preset_filterMode_p">false</entry>
+<entry key="app_preset_prof_preset_memoryMode_p">true</entry>
+</properties>
