@@ -26,10 +26,12 @@ public class NettyGameServer {
 			boot.group(bossGroup, workerGroup)
 				.channel(NioServerSocketChannel.class)
 				.option(ChannelOption.SO_BACKLOG, 1024)
+				.option(ChannelOption.SO_KEEPALIVE, true)
 				.handler(new LoggingHandler(LogLevel.INFO))
 				.childHandler(new NettyGameServerInitializer());
 			
 			Channel ch = boot.bind(port).sync().channel();
+
 			System.out.println("Web socket server started at port : " + port);
 			ch.closeFuture().sync();
 		} finally {

@@ -9,6 +9,8 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.nio.ByteBuffer;
 
+import com.alibaba.fastjson.JSONObject;
+
 public class NettyGameClient {
 	
 	public static void main(String[] args) throws Exception {
@@ -18,8 +20,6 @@ public class NettyGameClient {
 	private Socket socket;
 	private OutputStream writer;
 	private BufferedInputStream reader;
-	
-	ByteArrayOutputStream bout = new ByteArrayOutputStream();
 
 	public NettyGameClient(String ip) throws IOException {
 		socket = new Socket();
@@ -31,44 +31,54 @@ public class NettyGameClient {
 
 		byte[] sendData = "abcde".getBytes();
 		try {
-			// 定义一个发送消息协议格式：|--header:4 byte--|--content:10MB--|
-			// 获取一个4字节长度的协议体头
-			byte[] dataLength = intToByteArray(4, sendData.length);
-			// 和请求的数据组成一个请求数据包
-			byte[] requestMessage = combineByteArray(dataLength, sendData);
+			// 定义一个发送消息协议格式：|--header:5 byte--|--content:XX--|
 			// 发送数据-------------------------------
-			writer.write(requestMessage);
+			writer.write(packageEvent());
 			writer.flush();
-			// 接收数据-------------------------------
-			resultArray = copy(reader, bout);
-			System.out.println(new String(resultArray));
+			byte[] head = new byte[5];
+			while (reader.read(head) != -1) {
+				
+				// 接收数据-------------------------------
+				resultArray = copy(reader, head);
+				System.out.println(new String(resultArray));
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 		}
 	}
 
-	private static byte[] intToByteArray(int byteLength, int intValue) {
-		return ByteBuffer.allocate(byteLength).putInt(intValue).array();
+	public static byte[] packageEvent(){
+		JSONObject json = new JSONObject();
+		json.put("type", EventDefine.CMD_TEST);
+		json.put("token", 25645);
+		json.put("direction", "Foward");
+		json.put("isMove", true);
+		json.put("x", 100);
+		json.put("y", 200);
+		String source = json.toString();
+		int length = source.length();
+		byte[] pa = new byte[length + 5];
+		String l = Integer.toHexString(length);
+		System.arraycopy(l.getBytes(), 0, pa, 0, l.getBytes().length);
+		System.arraycopy(source.getBytes(), 0, pa, 5, length);
+		return pa;
 	}
-
-	private static byte[] combineByteArray(byte[] array1, byte[] array2) {
-		byte[] combined = new byte[array1.length + array2.length];
-		System.arraycopy(array1, 0, combined, 0, array1.length);
-		System.arraycopy(array2, 0, combined, array1.length, array2.length);
-		return combined;
-	}
-
-	private static byte[] copy(InputStream is, ByteArrayOutputStream bout)
-			throws Exception {
-		byte[] b = new byte[1024];
-		int len = 0;
-		len = is.read(b);
-		while (len != -1) {
-			bout.write(b, 0, len);
-			len = is.read(b);
+	
+	private static int getHeadLength(byte[] bytes){
+		int count = 0;
+		while(bytes[count] != 0){
+			count ++;
 		}
-		return bout.toByteArray();
+		return Integer.valueOf(new String(bytes, 0, count), 16);
+	}
+
+	private static byte[] copy(BufferedInputStream is, byte[] head)
+			throws Exception {
+		byte[] body = new byte[getHeadLength(head)];
+		is.read(body);
+		
+		return body;
 	}
 
 	public void close() throws IOException{

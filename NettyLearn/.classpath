@@ -5,5 +5,6 @@
 	<classpathentry kind="lib" path="K:/Netty/netty-5.0.0.Alpha1/jar/all-in-one/netty-all-5.0.0.Alpha1.jar" sourcepath="K:/Netty/netty-5.0.0.Alpha1/jar/all-in-one/netty-all-5.0.0.Alpha1-sources.jar"/>
 	<classpathentry kind="lib" path="K:/Netty/netty-5.0.0.Alpha1/jar/netty-example-5.0.0.Alpha1.jar" sourcepath="K:/Netty/netty-5.0.0.Alpha1/jar/netty-example-5.0.0.Alpha1-sources.jar"/>
 	<classpathentry kind="lib" path="K:/Netty/jar/protobuf-java-2.5.0.jar"/>
+	<classpathentry kind="lib" path="K:/MyGameServer/fastjson-1.1.9.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

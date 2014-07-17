@@ -15,8 +15,8 @@ public class NettyGameServerInitializer extends ChannelInitializer<SocketChannel
 //		pipeline.addLast(new HttpServerCodec());
 //		pipeline.addLast(new HttpObjectAggregator(65536));
 //		pipeline.addLast(new ChunkedWriteHandler());
-		pipeline.addLast("framedecoder",new LengthFieldBasedFrameDecoder(1024*1024*1024, 0, 4,0,4));
-		pipeline.addLast(new StringDecoder());
+//		pipeline.addLast("framedecoder",new LengthFieldBasedFrameDecoder(1024*1024*1024, 0, 4,0,4));
+//		pipeline.addLast(new StringDecoder());
 		pipeline.addLast(new NettyGameServerHandler());
 	}
 
