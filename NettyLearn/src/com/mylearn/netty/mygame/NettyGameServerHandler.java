@@ -28,7 +28,7 @@ public class NettyGameServerHandler extends ChannelHandlerAdapter {
 	public void channelRead(ChannelHandlerContext ctx, Object msg)
 			throws Exception {
 		System.out.println("channel read...");
-		ByteBuffer head = ByteBuffer.allocate(5);
+		ByteBuffer head = ByteBuffer.allocate(4);
 		ByteBuf buf = (ByteBuf) msg;
 		buf.readBytes(head);
 		ByteBuffer body = ByteBuffer.allocate(getHeadLength(head.array()));
